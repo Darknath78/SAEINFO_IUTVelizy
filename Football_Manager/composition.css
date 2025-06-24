@@ -1,0 +1,91 @@
+.composition-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    min-height: 700px;
+}
+
+#players-list-container {
+    width: 250px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+}
+#players-list-container h3 {
+    margin: 10px 0;
+    padding-bottom: 5px;
+    border-bottom: 2px solid var(--primary-color);
+}
+.player-pool {
+    background-color: #e9ecef;
+    border-radius: 5px;
+    padding: 10px;
+    min-height: 200px;
+    flex-grow: 1;
+}
+
+#pitch-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+#pitch {
+    width: 100%;
+    height: 650px;
+    background-color: #27ae60;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 680 1050'%3e%3crect width='680' height='1050' fill='none'/%3e%3c!-- Lignes de touche et de but --%3e%3crect x='30' y='30' width='620' height='990' fill='none' stroke='%23fff' stroke-width='4'/%3e%3c!-- Ligne médiane --%3e%3cline x1='30' y1='525' x2='650' y2='525' stroke='%23fff' stroke-width='4'/%3e%3c!-- Rond central --%3e%3ccircle cx='340' cy='525' r='91.5' fill='none' stroke='%23fff' stroke-width='4'/%3e%3c!-- Point de penalty --%3e%3ccircle cx='340' cy='140' r='5' fill='%23fff'/%3e%3ccircle cx='340' cy='910' r='5' fill='%23fff'/%3e%3c!-- Surface de réparation --%3e%3crect x='138.5' y='30' width='403' height='165' fill='none' stroke='%23fff' stroke-width='4'/%3e%3crect x='138.5' y='855' width='403' height='165' fill='none' stroke='%23fff' stroke-width='4'/%3e%3c!-- Surface de but --%3e%3crect x='248.5' y='30' width='183' height='55' fill='none' stroke='%23fff' stroke-width='4'/%3e%3crect x='248.5' y='965' width='183' height='55' fill='none' stroke='%23fff' stroke-width='4'/%3e%3c!-- Arc de cercle surface --%3e%3cpath d='M 248.5,195 A 91.5,91.5 0 0,1 431.5,195' fill='none' stroke='%23fff' stroke-width='4'/%3e%3cpath d='M 248.5,855 A 91.5,91.5 0 0,0 431.5,855' fill='none' stroke='%23fff' stroke-width='4'/%3e%3c/svg%3e");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.player-token {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: grab;
+    user-select: none;
+    font-size: 0.7rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    border: 2px solid var(--white);
+    margin: 5px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.player-token:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+.player-token .player-name {
+    font-size: 0.7em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 40px;
+}
+.player-token .player-number {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.player-token.on-pitch {
+    position: absolute;
+}
+
+.drop-zone {
+    border: 2px dashed #ccc;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.drop-zone.drag-over {
+    background-color: var(--light-blue);
+    border-color: var(--secondary-color);
+}
