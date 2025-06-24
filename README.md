@@ -1,3 +1,3 @@
 <p align="center">
-  <img src="src/logo-football-manager.png" alt="Logo Football Manager" width="200">
+  <img src="src/Logo football manager.png" alt="Logo Football Manager" width="200">
 </p>
