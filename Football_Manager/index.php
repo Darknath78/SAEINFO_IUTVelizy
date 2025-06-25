@@ -8,6 +8,11 @@ if (isset($_SESSION['user_id'])) {
 
 $error_message = '';
 
+$saved_login = '';
+if (isset($_COOKIE['remember_login'])) {
+    $saved_login = $_COOKIE['remember_login'];
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $login = $_POST['login'];
     $password = $_POST['password'];
@@ -20,9 +25,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = $stmt->fetch();
 
         if ($user && password_verify($password, $user['mot_de_passe'])) {
+
             $_SESSION['user_id'] = $user['id_utilisateur'];
             $_SESSION['user_login'] = $user['login'];
             $_SESSION['user_role'] = $user['role'];
+
+            if (isset($_POST['remember_me'])) {
+                setcookie('remember_login', $login, time() + (86400 * 30), "/");
+            } else {
+                setcookie('remember_login', '', time() - 3600, "/");
+            }
 
             header("Location: dashboard.php");
             exit();
@@ -47,12 +59,18 @@ include 'header.php';
     <form action="index.php" method="post">
         <div class="form-group">
             <label for="login">Identifiant</label>
-            <input type="text" id="login" name="login" required>
+            <input type="text" id="login" name="login" value="<?php echo htmlspecialchars($saved_login); ?>" required>
         </div>
         <div class="form-group">
             <label for="password">Mot de passe</label>
             <input type="password" id="password" name="password" required>
         </div>
+
+        <div class="form-group" style="display: flex; align-items: center;">
+            <input type="checkbox" name="remember_me" id="remember_me" style="width: auto; margin-right: 10px;">
+            <label for="remember_me" style="margin-bottom: 0; font-weight: normal;">Se souvenir de moi</label>
+        </div>
+
         <button type="submit" class="btn btn-primary">Se connecter</button>
     </form>
     <p style="margin-top: 20px;">

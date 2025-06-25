@@ -1,5 +1,5 @@
 <?php
-$motDePasseEnClair = 'joueur_pass';
+$motDePasseEnClair = 'KylianJoueBien75';
 
 $hash = password_hash($motDePasseEnClair, PASSWORD_DEFAULT);
 

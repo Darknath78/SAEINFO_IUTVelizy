@@ -213,3 +213,101 @@ td.actions a:hover {
     margin-right: 8px;
     vertical-align: middle;
 }
+
+.stats-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 40px;
+    text-align: center;
+}
+.stat-card {
+    flex: 1;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f1f1f1;
+}
+.stat-card h3 {
+    margin-top: 0;
+}
+.stat-card .stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 0;
+}
+.stat-card .stat-highlight {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin: 0;
+}
+
+/* --- MEDIA QUERIES POUR LE RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+    }
+    nav ul li {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    nav ul li a {
+        display: block;
+        padding: 10px;
+        background-color: var(--secondary-color);
+        border-radius: 5px;
+    }
+
+    .stats-container {
+        flex-direction: column;
+    }
+
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    tr { border: 1px solid #ccc; margin-bottom: 5px; }
+    td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+    }
+    td:before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+    }
+    td:nth-of-type(1):before { content: "Nom"; }
+    td:nth-of-type(2):before { content: "Prénom"; }
+    td:nth-of-type(3):before { content: "Poste"; }
+    td:nth-of-type(4):before { content: "N° Maillot"; }
+    td:nth-of-type(5):before { content: "Compte"; }
+    td:nth-of-type(6):before { content: "Actions"; }
+
+    td.actions {
+        text-align: right;
+    }
+}
+

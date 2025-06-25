@@ -96,9 +96,8 @@ INSERT INTO joueurs (nom, prenom, poste, numero_maillot) VALUES
 -- Remplissage de la table `utilisateurs`
 -- Mots de passe hashés : 'manager_pass' pour le manager, 'joueur_pass' pour le joueur.
 INSERT INTO utilisateurs (login, mot_de_passe, role, id_joueur_associe) VALUES
-                                                                            ('manager', '$2y$10$tbBcIbNYpAhwQ6/T939j0ucBVTTR7f77tZxPmIZ5x5.0nX1f7jtOm', 'manager', NULL),
-                                                                            ('kmbappe', '$2y$10$jL3HyKI6MEzax0E9rVQYi.gWp2ZCZtIItGIW5lZ0sh87zKuQA5eDa', 'joueur', 10),
-                                                                            ('agriezmann', '$2y$10$jL3HyKI6MEzax0E9rVQYi.gWp2ZCZtIItGIW5lZ0sh87zKuQA5eDa', 'joueur', 8);
+                                                                            ('manager', '$2y$10$5Grw4//x8iNZkfVp9.M/o.hrErokYkU/d8j0BmV5uHDIm4PjFlkBe', 'manager', NULL),
+                                                                            ('kmbappe', '$2y$10$LS9ubt2.Va0K2SQ.5AGsFuNO1r4i3pDMNVe02liQLrMTK8elw4jTy', 'joueur', 10),
 
 -- Remplissage de la table `matchs` (10 matchs)
 INSERT INTO matchs (adversaire, date_match, lieu, score_equipe, score_adversaire, tournoi) VALUES
